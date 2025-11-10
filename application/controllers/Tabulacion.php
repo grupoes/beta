@@ -16,9 +16,12 @@ class Tabulacion extends Controler
 
   public function index()
   {
-    //if($this->input->is_ajax_request()){   
-    $lista = $this->Mantenimiento_m->lista("categoria");
-    $this->load->view("TabulacionPrueba/index", compact('lista'));
+    if ($this->input->is_ajax_request()) {
+      $lista = $this->Mantenimiento_m->lista("categoria");
+      $this->load->view("TabulacionPrueba/index", compact('lista'));
+    } else {
+      $this->load->view('Error/404');
+    }
   }
 
   public function subir()
