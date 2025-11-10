@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-session_start();
+//session_start();
 
 $active_group = 'default';
 $query_builder = TRUE;
