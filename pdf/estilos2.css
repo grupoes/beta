@@ -1,0 +1,51 @@
+@page{
+
+ 	background-image:url("imagen_guia.png");
+background-repeat:no-repeat;
+
+  }
+
+ #data{
+  position: relative;
+  margin-top: 80px;
+   margin-left: 67px;
+   font-weight: bold;
+   font-size: 20px;
+
+
+  }
+
+ #data1{
+
+  
+   font-size: 30px;
+
+
+  }
+#data2{
+    position: relative;
+  margin-top: 25px;
+   margin-left: 250px;
+ 
+
+  }
+  #data3{
+    position: relative;
+  margin-top: 10px;
+   margin-left: 250px;
+ font-size: 20px;
+
+  }
+   #data4{
+    position: relative;
+  margin-top: 20px;
+   margin-left: 300px;
+ font-size: 20px;
+
+  }
+    #data5{
+   
+   margin-left: 375px;
+   font-size: 13px;
+
+  }

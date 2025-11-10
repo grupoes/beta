@@ -1,0 +1,61 @@
+#campo{
+	border: none;
+ 
+   width: 100%;
+}
+#res{
+	position: relative;
+  
+}
+#titulo{
+	position: absolute;
+	
+}
+#texto{
+	font-size:15px;
+	margin-top: 0px;
+	width: 7px;
+	height: 7px;
+	display: block; 
+}
+#campo1{
+	width: 239px;
+	font-size: 10px;
+}
+#campo2{
+	width: 341px;
+	font-size: 12px;
+}
+#campo4{
+	width: 150px;
+	font-size: 8px;
+}
+#campo3{
+	width: 155px;
+	font-size: 10px;
+}
+#campo5{
+	width: 323px;
+	font-size: 10px;
+}
+#texto{
+	font-size: 12px;  
+	font-family: Arial;
+	font-weight: normal;
+	 text-align: justify;
+
+}
+#data{
+	  width: 400px;
+  margin: 0 auto;
+}
+#datos{
+	border: 1px solid black;
+	padding: 60px;
+	display: block;
+}
+#centro{
+ text-align: center;
+ margin: 15px;
+ 	font-weight: normal;
+}

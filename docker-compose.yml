@@ -1,0 +1,52 @@
+version: "3.8"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ci3_tabulacion_data
+    volumes:
+      - ./:/var/www/html
+    ports:
+      - "8089:80"
+    depends_on:
+      - db
+    networks:
+      - appnet
+
+  db:
+    image: mysql:5.7
+    container_name: ci3_tabulacion
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: tabulacion
+      MYSQL_USER: ci3_grupoes
+      MYSQL_PASSWORD: ci3_grupoes2025
+      MYSQL_ROOT_PASSWORD: ci3_grupoes2025
+    volumes:
+      - db_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - appnet
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin_tabulacion
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: root_pass
+    ports:
+      - "8090:80"
+    depends_on:
+      - db
+    networks:
+      - appnet
+
+volumes:
+  db_data:
+
+networks:
+  appnet:
+    driver: bridge

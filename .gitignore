@@ -1,0 +1,36 @@
+# CodeIgniter 3 .gitignore
+
+# Logs y caché
+application/logs/
+application/cache/
+system/cache/
+system/logs/
+
+# Archivos subidos por usuarios
+uploads/
+assets/uploads/
+
+# Entorno
+.env
+.htaccess
+
+# Backup y bases de datos
+*.sql
+*.zip
+*.tar
+*.gz
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Si usas Composer
+/vendor/
+composer.lock
