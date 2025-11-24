@@ -1,5 +1,6 @@
+<?php
 
-<?php defined('BASEPATH') or exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 include('Controler.php');
 
 use PhpOffice\PhpWord\Shared\Converter;
@@ -1094,8 +1095,6 @@ class Tabulacion extends Controler
 
         $mencion[$i] = $nuevov;
 
-
-
         $iniciar = $nuevoq;
 
         for ($k = 0; $k < $enviados["respuesta"]; $k++) {
@@ -1257,8 +1256,6 @@ class Tabulacion extends Controler
         $objPHPExcel->getActiveSheet()->setCellValue($nuevow . "1121", 'Resultados');
         $objPHPExcel->getActiveSheet()->getStyle($nuevow . "1121:" . $nuevow . "1121")->getFont()->setName('Times New Roman')->setSize(10)->getColor()->setRGB('030303');
 
-
-
         $objPHPExcel->getActiveSheet()->setCellValue($nuevoo . "1015", "dimensión");
         $objPHPExcel->getActiveSheet()->getStyle($nuevoo . "1015:" . $nuevoo . "1015")->getFont()->setName('Times New Roman')->setSize(10)->getColor()->setRGB('030303');
 
@@ -1290,10 +1287,6 @@ class Tabulacion extends Controler
         $exc++;
         $objPHPExcel->getActiveSheet()->setCellValue($exc . "1015", 'Concatenación');
         $objPHPExcel->getActiveSheet()->getStyle($exc . "1015:" . $exc . "1015")->getFont()->setName('Times New Roman')->setSize(10)->getColor()->setRGB('030303');
-
-
-
-
 
         $iniciar = $nuevop;
         for ($k = 0; $k < $enviados["escala"]; $k++) {
@@ -1476,9 +1469,6 @@ class Tabulacion extends Controler
         $objPHPExcel->getActiveSheet()->setCellValue(($this->generar_letra($variables, 1)) . $cnuevox, $condux);
         $objPHPExcel->getActiveSheet()->getStyle(($this->generar_letra($variables, 1)) . $cnuevox)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
 
-
-
-
         $condu = "=('" . $nombrepagina1 . "'!" . $paginainicio2 . $totalpagina2 . ")";
         $condux = "=('" . $nombrepagina1 . "'!" . $paginainicio2 . $totalpagina2x . ")";
         $objPHPExcel->getActiveSheet()->getStyle(($this->generar_letra($variables, 2)) . $cnuevo . ":" . ($this->generar_letra($variables, 2)) . $cnuevo)->getFont()->setName('Times New Roman')->setSize(10)->getColor()->setRGB('030303');
@@ -1490,7 +1480,6 @@ class Tabulacion extends Controler
         $objPHPExcel->getActiveSheet()->setCellValue(($this->generar_letra($variables, 2)) . $cnuevox, $condux);
         $objPHPExcel->getActiveSheet()->getStyle(($this->generar_letra($variables, 2)) . $cnuevox)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
         $objPHPExcel->getActiveSheet()->getStyle(($this->generar_letra($variables, 2)) . $cnuevox)->getNumberFormat()->applyFromArray(array('code' => PHPExcel_Style_NumberFormat::FORMAT_PERCENTAGE));
-
 
         $letraband = ($this->generar_letra($variables, 2));
         $to = $totalpagina2 - $enviados["respuesta"] - 1;
@@ -1594,7 +1583,6 @@ class Tabulacion extends Controler
         $objPHPExcel->getActiveSheet()->getStyle(($this->generar_letra($iniciador1, 2)) . $valord1 . ":" . ($this->generar_letra($iniciador1, 2)) . $valord1)->getFont()->setName('Times New Roman')->setSize(10)->getColor()->setRGB('ffffff');
         $objPHPExcel->getActiveSheet()->getStyle(($this->generar_letra($iniciador1, 2)) . $valord1)->getNumberFormat()->applyFromArray(array('code' => PHPExcel_Style_NumberFormat::FORMAT_PERCENTAGE));
 
-
         $formula = '=IF(' . $datose . $valord . '>0.1%,' . $datose . $valord . ',"Algo Esta Mal")';
         $formula1 = '=IF(' . $datose . $valord1 . '>0.1%,' . $datose . $valord1 . ',"Algo Esta Mal")';
         //   echo $formula;exit();
@@ -1605,7 +1593,6 @@ class Tabulacion extends Controler
         $objPHPExcel->getActiveSheet()->setCellValue(($this->generar_letra($iniciador1, 3)) . $valord1, $formula1);
         $objPHPExcel->getActiveSheet()->getStyle(($this->generar_letra($iniciador1, 3)) . $valord1 . ":" . ($this->generar_letra($iniciador1, 3)) . $valord1)->getFont()->setName('Times New Roman')->setSize(10)->getColor()->setRGB('ffffff');
         $objPHPExcel->getActiveSheet()->getStyle(($this->generar_letra($iniciador1, 3)) . $valord1)->getNumberFormat()->applyFromArray(array('code' => PHPExcel_Style_NumberFormat::FORMAT_PERCENTAGE));
-
 
         $formula = '=IF(' . $datosf . $valord . '=' . $datose . $valord . ',' . $datosd . $valord . '," ")';
         $formula1 = '=IF(' . $datosf . $valord1 . '=' . $datose . $valord1 . ',' . $datosd . $valord1 . '," ")';
@@ -1633,7 +1620,6 @@ class Tabulacion extends Controler
       $objPHPExcel->getActiveSheet()->setCellValue($datosd . "2053", $formula1);
       $objPHPExcel->getActiveSheet()->getStyle($datosd . "2053")->getNumberFormat()->applyFromArray(array('code' => PHPExcel_Style_NumberFormat::FORMAT_PERCENTAGE));
       $objPHPExcel->getActiveSheet()->getStyle($datosd . "2053:" . $datosd . "2053")->getFont()->setName('Times New Roman')->setSize(10)->getColor()->setRGB('ffffff');
-
 
       $formula = '=SUM(' . $datosf . '10:' . $datosf . '12)';
       $formula1 = '=SUM(' . $datosf . '2010:' . $datosf . '2012)';
@@ -1680,7 +1666,6 @@ class Tabulacion extends Controler
       $objPHPExcel->getActiveSheet()->setCellValue($datose . '2057', $formula1);
       $objPHPExcel->getActiveSheet()->getStyle($datose . "2057:" . $datose . "2057")->getFont()->setName('Times New Roman')->setSize(10)->getColor()->setRGB('ffffff');
       $objPHPExcel->getActiveSheet()->getStyle($datose . '2057')->getNumberFormat()->applyFromArray(array('code' => PHPExcel_Style_NumberFormat::FORMAT_PERCENTAGE));
-
 
       $formula = '=SUM(' . $datosf . '11:' . $datosf . '12)';
       $formula1 = '=SUM(' . $datosf . '2011:' . $datosf . '2012)';
@@ -1824,9 +1809,6 @@ class Tabulacion extends Controler
 
           $objPHPExcel->getActiveSheet()->getStyle(($this->generar_letra($variables, 1)) . $cnuevox . ":" . ($this->generar_letra($variables, 1)) . $cnuevox)->getFont()->setName('Times New Roman')->setSize(10)->getColor()->setRGB('030303');
 
-
-
-
           $condu = "=(" . ($this->generar_letra($variables, 1)) . $cnuevo . "/" . ($this->generar_letra($variables, 1)) . (8 + $enviados["respuesta"]) . ")";
           $objPHPExcel->getActiveSheet()->getStyle(($this->generar_letra($variables, 2)) . $cnuevo . ":" . ($this->generar_letra($variables, 2)) . $cnuevo)->getFont()->setName('Times New Roman')->setSize(10)->getColor()->setRGB('030303');
           $objPHPExcel->getActiveSheet()->setCellValue(($this->generar_letra($variables, 2)) . $cnuevo, $condu);
@@ -1847,7 +1829,6 @@ class Tabulacion extends Controler
           $objPHPExcel->getActiveSheet()->setCellValue(($this->generar_letra($variables, 1)) . $cnuevox, $condu1);
           $objPHPExcel->getActiveSheet()->getStyle(($this->generar_letra($variables, 1)) . $cnuevox)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
 
-
           $condu = "=SUM(" . ($this->generar_letra($variables, 2)) . "8:" . ($this->generar_letra($variables, 2)) . (7 + $enviados["respuesta"]) . ")";
           $condu1 = "=SUM(" . ($this->generar_letra($variables, 2)) . "2008:" . ($this->generar_letra($variables, 2)) . (2007 + $enviados["respuesta"]) . ")";
           $objPHPExcel->getActiveSheet()->getStyle(($this->generar_letra($variables, 2)) . $cnuevo . ":" . ($this->generar_letra($variables, 2)) . $cnuevo)->getFont()->setName('Times New Roman')->setSize(10)->getColor()->setRGB('030303');
@@ -1858,7 +1839,6 @@ class Tabulacion extends Controler
           $objPHPExcel->getActiveSheet()->setCellValue(($this->generar_letra($variables, 2)) . $cnuevox, $condu1);
           $objPHPExcel->getActiveSheet()->getStyle(($this->generar_letra($variables, 2)) . $cnuevox)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
           $objPHPExcel->getActiveSheet()->getStyle(($this->generar_letra($variables, 2)) . $cnuevox)->getNumberFormat()->applyFromArray(array('code' => PHPExcel_Style_NumberFormat::FORMAT_PERCENTAGE));
-
 
           $objPHPExcel->getActiveSheet()->getStyle($letrainicio . $cnuevo . ":" . ($this->generar_letra($letrainicio, 2)) . $cnuevo)->applyFromArray($BStyle);
           $objPHPExcel->getActiveSheet()->getStyle($letrainicio . $cnuevo . ":" . ($this->generar_letra($letrainicio, 2)) . $cnuevo)->applyFromArray($BStyle1);
@@ -1998,7 +1978,6 @@ class Tabulacion extends Controler
       $objPHPExcel->getActiveSheet()->getStyle($conteof . "1006:" . $conteof . "1006")->getFont()->setName('Times New Roman')->setSize(10)->getColor()->setRGB('030303');
       $objPHPExcel->getActiveSheet()->getStyle($conteof . "1006")->getNumberFormat()->applyFromArray(array('code' => PHPExcel_Style_NumberFormat::FORMAT_PERCENTAGE));
 
-
       $objPHPExcel->getActiveSheet()->setCellValue($conteod . "1007", '=SUM(' . $conteod . '1006:' . $conteoe . '1006)');
       $objPHPExcel->getActiveSheet()->getStyle($conteod . "1007:" . $conteod . "1007")->getFont()->setName('Times New Roman')->setSize(10)->getColor()->setRGB('030303');
       $objPHPExcel->getActiveSheet()->getStyle($conteod . "1007")->getNumberFormat()->applyFromArray(array('code' => PHPExcel_Style_NumberFormat::FORMAT_PERCENTAGE));
@@ -2020,8 +1999,6 @@ class Tabulacion extends Controler
 
       if ($i < $enviados["numero_indicador0"][0]) {
         $objPHPExcel->getActiveSheet()->setCellValue($letrainicio . "34", $enviados["nombre_indicador"][$i]);
-
-
 
         $band = 1011;
         $iniciadorb = 1016;
@@ -2067,7 +2044,6 @@ class Tabulacion extends Controler
         $objPHPExcel->getActiveSheet()->getStyle($conteog . "1007:" . $conteog . "1007")->getFont()->setName('Times New Roman')->setSize(10)->getColor()->setRGB('030303');
         $objPHPExcel->getActiveSheet()->getStyle($conteog . "1007")->getNumberFormat()->applyFromArray(array('code' => PHPExcel_Style_NumberFormat::FORMAT_PERCENTAGE));
 
-
         //////////////////pppp
         $objPHPExcel->getActiveSheet()->setCellValue($conteoc . "1015", "dimensión");
         $objPHPExcel->getActiveSheet()->getStyle($conteoc . "1015:" . $conteoc . "1015")->getFont()->setName('Times New Roman')->setSize(10)->getColor()->setRGB('030303');
@@ -2080,7 +2056,6 @@ class Tabulacion extends Controler
 
         $objPHPExcel->getActiveSheet()->setCellValue($conteof . "1015", '=' . $conteof . '1005');
         $objPHPExcel->getActiveSheet()->getStyle($conteof . "1015:" . $conteof . "1015")->getFont()->setName('Times New Roman')->setSize(10)->getColor()->setRGB('030303');
-
 
         $objPHPExcel->getActiveSheet()->setCellValue($conteog . "1015", 'MAYOR');
         $objPHPExcel->getActiveSheet()->getStyle($conteog . "1015:" . $conteog . "1015")->getFont()->setName('Times New Roman')->setSize(10)->getColor()->setRGB('030303');
@@ -2191,9 +2166,7 @@ class Tabulacion extends Controler
           $band1++;
         }
 
-
         $band2 = 1026 + 50;
-
 
         $formula = '=MAX(' . $conteod . '1016:' . $conteod . ($band1 - 1) . ')';
         $objPHPExcel->getActiveSheet()->setCellValue($conteod . $band2, $formula);
@@ -2232,7 +2205,6 @@ class Tabulacion extends Controler
       $bordeinicio = $this->generar_letra($bordefinal, 3);
     }
     ///////
-
 
     if ($enviados["variable"] == 2) {
       $nombrepagina2 =  substr($enviados["nombre_dimension"][1], 0, 31);
@@ -2431,8 +2403,6 @@ class Tabulacion extends Controler
         $ini2++;
       }
 
-
-
       $nuevaaru = array();
       $nuevaarq = array();
       $mencion = array();
@@ -2524,7 +2494,6 @@ class Tabulacion extends Controler
           $objPHPExcel->getActiveSheet()->mergeCells($Letra . "2:" . $LetraFinal . "2");
           $nom_dimension[$Contador] = $Letra;
         }
-
 
         for ($i = 1; $i <= 2; $i++) {
           if ($i == 1) {
@@ -2756,8 +2725,6 @@ class Tabulacion extends Controler
         $nuevaarq[$i] = $var;
         $objPHPExcel->getActiveSheet()->getStyle($var . "15:" . $var . "15")->getFont()->setName('Times new Roman')->setSize(10)->getColor()->setRGB('030303');
 
-
-
         $objPHPExcel->getActiveSheet()->getStyle($var . "16:" . $var2 . "16")->applyFromArray($BStyle);
         $objPHPExcel->getActiveSheet()->getStyle($var . "16:" . $var . "17")->getFont()->setName('Times new Roman')->setSize(10)->getColor()->setRGB('030303');
         $objPHPExcel->getActiveSheet()->setCellValue($var . "17", 'Calificación');
@@ -2808,7 +2775,6 @@ class Tabulacion extends Controler
           $contar++;
         }
 
-
         ///////////////////////////////////////////////////////////////////////////
         $var = $this->generar_letra($var, 1);
 
@@ -2831,8 +2797,6 @@ class Tabulacion extends Controler
           }
           $contar++;
         }
-
-
 
         ///////////////////////////////////////////////////////////////////////////
         $var = $this->generar_letra($var, 1);
@@ -3067,11 +3031,7 @@ class Tabulacion extends Controler
           $objPHPExcel->getActiveSheet()->setCellValue($nuevow . "1015", 'Concatenación');
           $objPHPExcel->getActiveSheet()->getStyle($nuevow . "1015:" . $nuevow . "1015")->getFont()->setName('Times New Roman')->setSize(10)->getColor()->setRGB('030303');
 
-
-
           $mencion[$i] = $nuevov;
-
-
 
           $iniciar = $nuevoq;
 
@@ -3231,8 +3191,6 @@ class Tabulacion extends Controler
           $objPHPExcel->getActiveSheet()->setCellValue($nuevow . "1121", 'Resultados');
           $objPHPExcel->getActiveSheet()->getStyle($nuevow . "1121:" . $nuevow . "1121")->getFont()->setName('Times New Roman')->setSize(10)->getColor()->setRGB('030303');
 
-
-
           $objPHPExcel->getActiveSheet()->setCellValue($nuevoo . "1015", "dimensión");
           $objPHPExcel->getActiveSheet()->getStyle($nuevoo . "1015:" . $nuevoo . "1015")->getFont()->setName('Times New Roman')->setSize(10)->getColor()->setRGB('030303');
 
@@ -3264,10 +3222,6 @@ class Tabulacion extends Controler
           $exc++;
           $objPHPExcel->getActiveSheet()->setCellValue($exc . "1015", 'Concatenación');
           $objPHPExcel->getActiveSheet()->getStyle($exc . "1015:" . $exc . "1015")->getFont()->setName('Times New Roman')->setSize(10)->getColor()->setRGB('030303');
-
-
-
-
 
           $iniciar = $nuevop;
           for ($k = 0; $k < $enviados["escala"]; $k++) {
@@ -3434,7 +3388,6 @@ class Tabulacion extends Controler
           $objPHPExcel->getActiveSheet()->getStyle(($this->generar_letra($variables, 1)) . $cnuevo . ":" . ($this->generar_letra($variables, 1)) . $cnuevo)->getFont()->setName('Times New Roman')->setSize(10)->getColor()->setRGB('030303');
           $objPHPExcel->getActiveSheet()->setCellValue(($this->generar_letra($variables, 1)) . $cnuevo, $condu);
           $objPHPExcel->getActiveSheet()->getStyle(($this->generar_letra($variables, 1)) . $cnuevo)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
-
 
           $condu = "=('" . $nombrepagina2 . "'!" . $paginainicio2 . $totalpagina2 . ")";
           $objPHPExcel->getActiveSheet()->getStyle(($this->generar_letra($variables, 2)) . $cnuevo . ":" . ($this->generar_letra($variables, 2)) . $cnuevo)->getFont()->setName('Times New Roman')->setSize(10)->getColor()->setRGB('030303');
@@ -3844,8 +3797,6 @@ class Tabulacion extends Controler
         if ($i < $enviados["numero_indicador0"][1]) {
           $objPHPExcel->getActiveSheet()->setCellValue($letrainicio . "34", $muestra1["nombre_indicador"][$i]);
 
-
-
           $band = 1011;
           $iniciadorb = 1016;
 
@@ -4096,7 +4047,6 @@ class Tabulacion extends Controler
         $variabley1 = 'B';
         $variabley = 'B';
 
-
         for ($j = 0; $j < $enviados["numero_indicador0"][1]; $j++) {
           $variables = $this->generar_letra($bordeinicio, 2);
           $objPHPExcel->getActiveSheet()->getColumnDimension($variables)->setWidth('20');
@@ -4136,7 +4086,6 @@ class Tabulacion extends Controler
           $objPHPExcel->getActiveSheet()->getColumnDimension($variables)->setWidth('15');
           $variables = $this->generar_letra($bordeinicio, 22);
           $objPHPExcel->getActiveSheet()->getColumnDimension($variables)->setWidth('20');
-
 
           $variables = $this->generar_letra($bordeinicio, 2);
           $variables2 = $this->generar_letra($bordeinicio, 3);
@@ -4325,7 +4274,6 @@ class Tabulacion extends Controler
           $objPHPExcel->getActiveSheet()->getStyle($variables . '12')->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
           $objPHPExcel->getActiveSheet()->getStyle($variables . '12:' . $variables . '12')->getAlignment()->setWrapText(true);
 
-
           $columnaa = $this->generar_letra($bordeinicio, 3);
           $objPHPExcel->getActiveSheet()->getStyle($variables . "8:" . $variables . "8")->getFont()->setBold(true)->setName('Times New Roman')->setSize(10)->getColor()->setRGB('030303');
           $objPHPExcel->getActiveSheet()->setCellValue($variables . "8", "=" . $columnaa . "3");
@@ -4347,7 +4295,6 @@ class Tabulacion extends Controler
           $objPHPExcel->getActiveSheet()->getStyle($variables . '10')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
           $objPHPExcel->getActiveSheet()->getStyle($variables . '10')->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
           $objPHPExcel->getActiveSheet()->getStyle($variables . '10:' . $variables . '10')->getAlignment()->setWrapText(true);
-
 
           $objPHPExcel->getActiveSheet()->getStyle($variables . "5:" . $LetraFinal . "5")->applyFromArray($BStyle);
           $objPHPExcel->getActiveSheet()->getStyle($variables . "7:" . $LetraFinal . "7")->applyFromArray($BStyle);
@@ -4526,7 +4473,6 @@ class Tabulacion extends Controler
             $objPHPExcel->getActiveSheet()->getStyle($variables . '9:' . $variables . '9')->getAlignment()->setWrapText(true);
           }
 
-
           ////// AYUDA ///
           $variables = $this->generar_letra($variables, 2);
           $objPHPExcel->getActiveSheet()->getStyle($variables . "10:" . $variables . "10")->getFont()->setName('Times New Roman')->setSize(10)->getColor()->setRGB('030303');
@@ -4569,17 +4515,12 @@ class Tabulacion extends Controler
           $nuevot = $this->generar_letra($variables, 3);
           $formula = '=CONCATENATE("la ",' . $variables . '10," muestra los resultados de la prueba de ",' . $letraconcatenar2[3] . '13,", en donde se evidencia que con una ",' . $letraconcatenar2[1] . $numero1 . '," del ",' . $letraconcatenar2[1] . $numero3 . ',"% ",' . $letraconcatenar2[1] . $numero4 . '," ",' . $letraconcatenar2[0] . $numero2 . '," ",' . $letraconcatenar2[2] . '13," y ",' . $letraconcatenar2[2] . '16,", adicional a ello se puede observar que la fuerza y/o grado de correlación ",' . $letraconcatenar2[2] . $numero1 . '," tiene un valor de ",' . $letraconcatenar2[2] . $numero3 . ',"% lo que afirma que es una ",' . $letraconcatenar2[2] . $numero4 . '," mismo que asu vez significa que a mayor ",' . $letraconcatenar2[4] . '12," ",' . $letraconcatenar2[3] . $numero4 . '," ",' . $letraconcatenar2[2] . '16,", por todo ello en el presente objetivo ",' . $letraconcatenar2[4] . $numero4 . ',".")';
 
-
-
-
           $objPHPExcel->getActiveSheet()->setCellValue($variables . $cantidadglobalmuestra, $formula);
           $objPHPExcel->getActiveSheet()->getStyle($variables . $cantidadglobalmuestra . ":" . $variables . $cantidadglobalmuestra)->getFont()->setName('Times New Roman')->setSize(10)->getColor()->setRGB('030303');
           $objPHPExcel->getActiveSheet()->mergeCells($variables . $cantidadglobalmuestra . ":" . $nuevot . $cantidadglobal_final);
           $objPHPExcel->getActiveSheet()->getStyle($variables . $cantidadglobalmuestra)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_LEFT);
           $objPHPExcel->getActiveSheet()->getStyle($variables . $cantidadglobalmuestra)->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
           $objPHPExcel->getActiveSheet()->getStyle($variables . $cantidadglobalmuestra . ':' . $variables . $cantidadglobalmuestra)->getAlignment()->setWrapText(true);
-
-
 
           $variables = $this->generar_letra($variables, 1);
           $objPHPExcel->getActiveSheet()->getStyle($variables . "13:" . $variables . "13")->getFont()->setName('Times New Roman')->setSize(10)->getColor()->setRGB('030303');
@@ -4632,7 +4573,6 @@ class Tabulacion extends Controler
           $objPHPExcel->getActiveSheet()->getStyle($variables . '12')->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
           $objPHPExcel->getActiveSheet()->getStyle($variables . '12:' . $variables . '12')->getAlignment()->setWrapText(true);
 
-
           /////////////////AYUDA 1 //////////////
           $variables = $this->generar_letra($variables, 2);
           $objPHPExcel->getActiveSheet()->getStyle($variables . "10:" . $variables . "10")->getFont()->setName('Times New Roman')->setSize(10)->getColor()->setRGB('030303');
@@ -4650,7 +4590,6 @@ class Tabulacion extends Controler
           $objPHPExcel->getActiveSheet()->getStyle($variables . "18:" . $LetraFinal . "18")->applyFromArray($BStyle);
 
           $objPHPExcel->getActiveSheet()->mergeCells($variables . "12:" . ($this->generar_letra($variables, 2)) . "12");
-
 
           $objPHPExcel->getActiveSheet()->mergeCells($variables . "19:" . $LetraFinal . "19");
           $objPHPExcel->getActiveSheet()->getStyle($variables . "19:" . $variables . "19")->getFont()->setBold(true)->setName('Times New Roman')->setSize(10)->getColor()->setRGB('030303');
@@ -4670,17 +4609,12 @@ class Tabulacion extends Controler
           $nuevot = $this->generar_letra($variables, 3);
           $formula = '=CONCATENATE("la ",' . $variables . '10," muestra los resultados de la prueba de ",' . $letraconcatenar3[4] . '13,", en donde se evidencia que con una ",' . $letraconcatenar3[1] . $numero1 . '," del ",' . $letraconcatenar3[1] . $numero3 . ',"% ",' . $letraconcatenar3[1] . $numero4 . '," ",' . $letraconcatenar3[0] . $numero2 . '," ",' . $letraconcatenar3[3] . '13," y ",' . $letraconcatenar3[3] . '16,", adicional a ello se puede observar que la fuerza y/o grado de correlación ",' . $letraconcatenar3[2] . $numero1 . '," tiene un valor de ",' . $letraconcatenar3[2] . $numero3 . ',"% lo que afirma que es una ",' . $letraconcatenar3[2] . $numero4 . '," mismo que asu vez significa que a mayor ",' . $letraconcatenar3[5] . '12," ",' . $letraconcatenar3[3] . $numero4 . '," ",' . $letraconcatenar3[6] . '12,", por todo ello en el presente objetivo ",' . $letraconcatenar3[4] . $numero4 . ',".")';
 
-
           $objPHPExcel->getActiveSheet()->setCellValue($variables . $cantidadglobalmuestra, $formula);
           $objPHPExcel->getActiveSheet()->getStyle($variables . $cantidadglobalmuestra . ":" . $variables . $cantidadglobalmuestra)->getFont()->setName('Times New Roman')->setSize(10)->getColor()->setRGB('030303');
           $objPHPExcel->getActiveSheet()->mergeCells($variables . $cantidadglobalmuestra . ":" . $nuevot . $cantidadglobal_final);
           $objPHPExcel->getActiveSheet()->getStyle($variables . $cantidadglobalmuestra)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_LEFT);
           $objPHPExcel->getActiveSheet()->getStyle($variables . $cantidadglobalmuestra)->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
           $objPHPExcel->getActiveSheet()->getStyle($variables . $cantidadglobalmuestra . ':' . $variables . $cantidadglobalmuestra)->getAlignment()->setWrapText(true);
-
-
-
-
 
           $variables = $this->generar_letra($variables, 1);
           $objPHPExcel->getActiveSheet()->mergeCells($variables . "13:" . $variables . "15");
@@ -4696,10 +4630,6 @@ class Tabulacion extends Controler
           $objPHPExcel->getActiveSheet()->getStyle($variables . '16')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
           $objPHPExcel->getActiveSheet()->getStyle($variables . '16')->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
           $objPHPExcel->getActiveSheet()->getStyle($variables . '16:' . $variables . '16')->getAlignment()->setWrapText(true);
-
-
-
-
 
           $variables = $this->generar_letra($variables, 1);
 
@@ -4760,8 +4690,6 @@ class Tabulacion extends Controler
           $variabley1 = $this->generar_letra($variabley1, 2);
           $suma++;
         }
-
-
 
         $bordeinicio = $this->generar_letra($bordefinal, 2);
         $Letra = $this->generar_letra($bordeinicio, 2);
@@ -4851,7 +4779,6 @@ class Tabulacion extends Controler
           $variables = $this->generar_letra($bordeinicio, 22);
           $objPHPExcel->getActiveSheet()->getColumnDimension($variables)->setWidth('20');
 
-
           $variables = $this->generar_letra($bordeinicio, 2);
           $variables2 = $this->generar_letra($bordeinicio, 3);
           $bordefinal = $this->generar_letra($bordeinicio, 25);
@@ -4925,7 +4852,6 @@ class Tabulacion extends Controler
           $letraconcatenar2[3] = $letracuadro;
           $objPHPExcel->getActiveSheet()->setCellValue($letracuadro . $numero4, '=IF(' . $letracuadroa . $numero2 . '<0,"menor","mayor")');
 
-
           $letracuadro = $this->generar_letra($letracuadro, 1);
           $letraconcatenar2[4] = $letracuadro;
           $letraconcatenar2[5] = $this->generar_letra($letracuadro, 1);
@@ -4956,7 +4882,6 @@ class Tabulacion extends Controler
           $letracuadro = $this->generar_letra($letracuadro, 1);
           $letraconcatenar3[3] = $letracuadro;
           $objPHPExcel->getActiveSheet()->setCellValue($letracuadro . $numero4, '=IF(' . $letracuadroa . $numero2 . '<0,"menor","mayor")');
-
 
           $letracuadro = $this->generar_letra($letracuadro, 1);
           $letraconcatenar3[4] = $letracuadro;
@@ -5033,7 +4958,6 @@ class Tabulacion extends Controler
           $objPHPExcel->getActiveSheet()->getStyle($variables . '12')->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
           $objPHPExcel->getActiveSheet()->getStyle($variables . '12:' . $variables . '12')->getAlignment()->setWrapText(true);
 
-
           $columnaa = $this->generar_letra($bordeinicio, 3);
           $objPHPExcel->getActiveSheet()->getStyle($variables . "8:" . $variables . "8")->getFont()->setBold(true)->setName('Times New Roman')->setSize(10)->getColor()->setRGB('030303');
           $objPHPExcel->getActiveSheet()->setCellValue($variables . "8", "=" . $columnaa . "3");
@@ -5055,7 +4979,6 @@ class Tabulacion extends Controler
           $objPHPExcel->getActiveSheet()->getStyle($variables . '10')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
           $objPHPExcel->getActiveSheet()->getStyle($variables . '10')->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
           $objPHPExcel->getActiveSheet()->getStyle($variables . '10:' . $variables . '10')->getAlignment()->setWrapText(true);
-
 
           $objPHPExcel->getActiveSheet()->getStyle($variables . "5:" . $LetraFinal . "5")->applyFromArray($BStyle);
           $objPHPExcel->getActiveSheet()->getStyle($variables . "7:" . $LetraFinal . "7")->applyFromArray($BStyle);
@@ -5105,7 +5028,6 @@ class Tabulacion extends Controler
           $objPHPExcel->getActiveSheet()->getStyle($variables . '8')->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
           $objPHPExcel->getActiveSheet()->getStyle($variables . '8:' . $variables . '8')->getAlignment()->setWrapText(true);
 
-
           $variables = $this->generar_letra($Letra, 7);
           $objPHPExcel->getActiveSheet()->getStyle($variables . "7:" . $variables . "7")->getFont()->setName('Times New Roman')->setSize(10)->getColor()->setRGB('030303');
           $objPHPExcel->getActiveSheet()->setCellValue($variables . "7", "Sig.");
@@ -5131,7 +5053,6 @@ class Tabulacion extends Controler
           $objPHPExcel->getActiveSheet()->getStyle($variables . '6')->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
           $objPHPExcel->getActiveSheet()->getStyle($variables . '6:' . $variables . '6')->getAlignment()->setWrapText(true);
 
-
           $objPHPExcel->getActiveSheet()->getStyle($variables . "7:" . $variables . "7")->getFont()->setName('Times New Roman')->setSize(10)->getColor()->setRGB('030303');
           $objPHPExcel->getActiveSheet()->setCellValue($variables . "7", "Estadístico");
           $objPHPExcel->getActiveSheet()->getStyle($variables . '7')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
@@ -5145,7 +5066,6 @@ class Tabulacion extends Controler
           $objPHPExcel->getActiveSheet()->getStyle($variables . '8')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
           $objPHPExcel->getActiveSheet()->getStyle($variables . '8')->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
           $objPHPExcel->getActiveSheet()->getStyle($variables . '8:' . $variables . '8')->getAlignment()->setWrapText(true);
-
 
           $variables = $this->generar_letra($Letra, 9);
           $objPHPExcel->getActiveSheet()->getStyle($variables . "7:" . $variables . "6")->getFont()->setName('Times New Roman')->setSize(10)->getColor()->setRGB('030303');
@@ -5162,14 +5082,12 @@ class Tabulacion extends Controler
           $objPHPExcel->getActiveSheet()->getStyle($variables . '8')->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
           $objPHPExcel->getActiveSheet()->getStyle($variables . '8:' . $variables . '8')->getAlignment()->setWrapText(true);
 
-
           $variables = $this->generar_letra($Letra, 10);
           $objPHPExcel->getActiveSheet()->getStyle($variables . "7:" . $variables . "7")->getFont()->setName('Times New Roman')->setSize(10)->getColor()->setRGB('030303');
           $objPHPExcel->getActiveSheet()->setCellValue($variables . "7", "Sig.");
           $objPHPExcel->getActiveSheet()->getStyle($variables . '7')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
           $objPHPExcel->getActiveSheet()->getStyle($variables . '7')->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
           $objPHPExcel->getActiveSheet()->getStyle($variables . '7:' . $variables . '7')->getAlignment()->setWrapText(true);
-
 
           $objPHPExcel->getActiveSheet()->getStyle($variables . "8:" . $variables . "8")->getFont()->setName('Times New Roman')->setSize(10)->getColor()->setRGB('030303');
           if ($j != 0) {
@@ -5329,7 +5247,6 @@ class Tabulacion extends Controler
           $objPHPExcel->getActiveSheet()->getStyle($variables . '12')->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
           $objPHPExcel->getActiveSheet()->getStyle($variables . '12:' . $variables . '12')->getAlignment()->setWrapText(true);
 
-
           /////////////////AYUDA 1 //////////////
           $variables = $this->generar_letra($variables, 2);
           $objPHPExcel->getActiveSheet()->getStyle($variables . "10:" . $variables . "10")->getFont()->setName('Times New Roman')->setSize(10)->getColor()->setRGB('030303');
@@ -5390,10 +5307,6 @@ class Tabulacion extends Controler
           $objPHPExcel->getActiveSheet()->getStyle($variables . '16')->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
           $objPHPExcel->getActiveSheet()->getStyle($variables . '16:' . $variables . '16')->getAlignment()->setWrapText(true);
 
-
-
-
-
           $variables = $this->generar_letra($variables, 1);
 
           $objPHPExcel->getActiveSheet()->getStyle($variables . "13:" . $variables . "13")->getFont()->setName('Times New Roman')->setSize(10)->getColor()->setRGB('030303');
@@ -5446,15 +5359,12 @@ class Tabulacion extends Controler
           $objPHPExcel->getActiveSheet()->getStyle($variables . '12')->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
           $objPHPExcel->getActiveSheet()->getStyle($variables . '12:' . $variables . '12')->getAlignment()->setWrapText(true);
 
-
           $bordeinicio = $bordefinal;
           $Letra = $this->generar_letra($bordeinicio, 2);
           $variabley = $this->generar_letra($variabley, 2);
           $variabley1 = $this->generar_letra($variabley1, 2);
           $suma++;
         }
-
-
 
         $bordeinicio = $this->generar_letra($bordefinal, 2);
         $Letra = $this->generar_letra($bordeinicio, 2);
@@ -5490,8 +5400,6 @@ class Tabulacion extends Controler
       $objPHPExcel->getActiveSheet()->getRowDimension(17)->setRowHeight(-1);
       $objPHPExcel->getActiveSheet()->getRowDimension(18)->setRowHeight(-1);
       $objPHPExcel->getActiveSheet()->getRowDimension(19)->setRowHeight(-1);
-
-
 
       $rand = array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f');
       $color = $rand[rand(0, 15)] . $rand[rand(0, 15)] . $rand[rand(0, 15)] . $rand[rand(0, 15)] . $rand[rand(0, 15)] . $rand[rand(0, 15)];
@@ -5544,7 +5452,6 @@ class Tabulacion extends Controler
       $objPHPExcel->getActiveSheet()->getColumnDimension($variables)->setWidth('15');
       $variables = $this->generar_letra($bordeinicio, 22);
       $objPHPExcel->getActiveSheet()->getColumnDimension($variables)->setWidth('20');
-
 
       $variables = $this->generar_letra($bordeinicio, 2);
       $variables2 = $this->generar_letra($bordeinicio, 3);
@@ -5618,7 +5525,6 @@ class Tabulacion extends Controler
       $letracuadro = $this->generar_letra($letracuadro, 1);
       $letraconcatenar2[3] = $letracuadro;
       $objPHPExcel->getActiveSheet()->setCellValue($letracuadro . $numero4, '=IF(' . $letracuadroa . $numero2 . '<0,"menor","mayor")');
-
 
       $letracuadro = $this->generar_letra($letracuadro, 1);
       $letraconcatenar2[4] = $letracuadro;
@@ -6084,10 +5990,6 @@ class Tabulacion extends Controler
       $objPHPExcel->getActiveSheet()->getStyle($variables . '16')->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
       $objPHPExcel->getActiveSheet()->getStyle($variables . '16:' . $variables . '16')->getAlignment()->setWrapText(true);
 
-
-
-
-
       $variables = $this->generar_letra($variables, 1);
 
       $objPHPExcel->getActiveSheet()->getStyle($variables . "13:" . $variables . "13")->getFont()->setName('Times New Roman')->setSize(10)->getColor()->setRGB('030303');
@@ -6147,9 +6049,6 @@ class Tabulacion extends Controler
       $variabley1 = $this->generar_letra($variabley1, 2);
       $suma++;
 
-
-
-
       $bordeinicio = $this->generar_letra($bordefinal, 2);
       $Letra = $this->generar_letra($bordeinicio, 2);
       $variablex = $this->generar_letra($variablex, 2);
@@ -6207,9 +6106,6 @@ class Tabulacion extends Controler
       $objPHPExcel->getActiveSheet()->setCellValue("C14", "Correlación positiva perfecta");
     }
 
-
-
-
     // Save Excel 2007 file
 
     $nombreexcel  = "archivo";
@@ -6235,21 +6131,13 @@ class Tabulacion extends Controler
     $objPHPExcel->disconnectWorksheets();
     unset($objPHPExcel);
 
-
-
     $time_end = microtime(true);
     $time_total = $time_end - $time_start;
     // echo (json_encode($response,$time_total));
 
-
-
-
     $json_string = json_encode($enviados);
     $file = 'descargar/Tabulacion.json';
     file_put_contents($file, $json_string);
-
-
-
 
     $value = array();
     $value[1] = "descargar/Tabulacion.json";
@@ -6621,5 +6509,3 @@ class Tabulacion extends Controler
     }
   }
 }
-
-?>
